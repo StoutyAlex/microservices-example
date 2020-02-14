@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cars-deployment
+spec:
+  selector:
+    matchLabels:
+      app: cars
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: cars
+    spec:
+      containers:
+      - name: cars
+        image: stoutyalex/microservice-example_cars:latest
+        ports:
+        - containerPort: 3000
